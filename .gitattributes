@@ -1,0 +1,11 @@
+# Normalize line endings on commit
+* text=auto eol=lf
+
+# Windows scripts must keep CRLF
+*.bat text eol=crlf
+
+# The Gradle POSIX launcher must keep LF (CRLF breaks the shebang on Linux/CI)
+gradlew text eol=lf
+
+# Binary artifacts
+*.jar binary

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="create-customer" author="test">
+        <createTable tableName="customer">
+            <column name="id" type="BIGINT"/>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+    <!-- Comments live in a separate changeset on purpose: the checker aggregates across changesets. -->
+    <changeSet id="comment-customer" author="test">
+        <sql>
+            COMMENT ON TABLE customer IS 'A customer';
+            COMMENT ON COLUMN customer.id IS 'Primary key';
+            COMMENT ON COLUMN customer.name IS 'Full name';
+        </sql>
+    </changeSet>
+</databaseChangeLog>
